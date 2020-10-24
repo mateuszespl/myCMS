@@ -1,9 +1,8 @@
 <!-- bootstraping cms -->
-<?php require("./vendor/autoload.php"); ?>
 
 <?php
-@require_once("./themes/mainTheme/head.php");
-@require_once("./themes/mainTheme/header.php");
-@require_once("./themes/mainTheme/page.php");
-@require_once("./themes/mainTheme/footer.php");
+@require_once("./themes/lightTheme/head.php");
+@require_once("./themes/lightTheme/header.php");
+@require_once("./themes/lightTheme/page.php");
+@require_once("./themes/lightTheme/footer.php");
  ?>

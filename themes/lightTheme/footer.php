@@ -1,1 +1,1 @@
-<footer>Footer</footer>
+<footer class="d-flex w-100 justify-content-center">Footer</footer>

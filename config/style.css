@@ -1,0 +1,14 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+.login, .admin__panel{
+    background-image:url("https://my-brushes.s3.amazonaws.com/images/vector/413229/preview/bl-Preview.png?v=5");
+}
+
+.admin__nav{
+    width:200px;
+    height:100vw;
+}

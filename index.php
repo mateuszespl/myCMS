@@ -3,11 +3,15 @@
 @include_once('./config/db.php');
 
 // Routing 
-switch($_SERVER["REQUEST_URI"]){
-    case "/":
-        @include_once("./themes/lightTheme/index.php");
-    break;
-    case "/admin/login":
-        @include_once("./admin/index.php");
-};
+$uri = $_SERVER['REQUEST_URI'];
+if($uri == "/"){
+    @include_once "./themes/lightTheme/index.php";
+} else if($_GET["logged"] != null && $_GET["logged"] == 0){
+    session_destroy();
+    @include_once "./themes/lightTheme/index.php";
+} elseif($uri == "/admin/login"){
+    @include_once "./admin/index.php";
+} elseif(preg_match("@/.*@Umsi", $uri)){
+    @include_once "./themes/lightTheme/index.php";
+}
  ?>

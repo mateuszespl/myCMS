@@ -1,1 +1,1 @@
-<h1>Witaj admin!</h1>
+<div class="card p-5">Witaj admin!</div>

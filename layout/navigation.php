@@ -1,7 +1,3 @@
-<?php
-echo $uri;
-?>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Brand</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +23,9 @@ echo $uri;
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/nowa-podstrona-5">Nowa podstrona numer 5</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Panel admina</a>
       </li>
     </ul>
   </div>

@@ -1,9 +1,8 @@
 <?php
-@include_once('./config/consoleLog.php');
-@include_once('./config/db.php');
+session_start();
 
 // Status zalogowania // Zalogowany == 1 // Niezalogowany == 0 // W trakcie logowania == 2 // l == logged //
-$logged = $_GET['l'] ?? $_POST['l'] ?? '0';
+$logged = $_SESSION['l'] ?? $_GET['l'] ?? $_POST['l'] ?? '0';
 
 // Adres strony // p == page //
 $page = $_GET['p'] ?? $_POST['p'] ?? "home";
@@ -32,10 +31,10 @@ if($page == "home"){
     $loginController = new LoginController;
     if($logged == 0 && $action == "submitted"){
         $loginController->validateForm();
+    }elseif($action == "logout"){
+        $loginController->logout();
     }elseif($logged == 1){
         $loginController->showAdminPanel();
     } else $loginController->showLoginForm();
 }
-
-echo $_SESSION['logged']
  ?>

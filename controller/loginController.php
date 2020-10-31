@@ -2,10 +2,10 @@
 @include_once 'config/functions.php';
 class LoginController{
     function showLoginForm(){
-        return @include_once './view/login/login.php';
+        @include_once './view/login/login.php';
     }
     function showAdminPanel(){
-        return @include_once './view/admin/admin.php';
+        @include_once './view/admin/admin.php';
     }
     function validateForm(){
         $user = getUser(); 
@@ -13,10 +13,13 @@ class LoginController{
         $userPassword = $user['user_password'];
         $loginInput = $_POST['login'];
         $passwordInput = $_POST['password'];
-    if($userLogin == $loginInput && $userPassword == $passwordInput){
-        session_start();
-        $_SESSION['l'] = 1;
-        header("Location: /?p=admin&l=1");
+        if($userLogin == $loginInput && $userPassword == $passwordInput){
+            $_SESSION['l'] = 1;
+            header("Location: /?p=admin&l=1");
+        }
     }
+    function logout(){
+        $_SESSION['l'] = 0;
+        @include_once './view/login/login-logoutInfo.php';
     }
 }

@@ -1,1 +1,1 @@
-<?php @include_once './view/page.php';
+<?php @include_once './view/page/page.php';

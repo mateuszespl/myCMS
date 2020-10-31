@@ -31,7 +31,7 @@
         <a class="nav-link" href="/nowa-podstrona-5">Nowa podstrona numer 5</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin">Panel admina</a>
+        <a class="nav-link" href="/?p=login">Panel admina</a>
       </li>
     </ul>
   </div>
@@ -54,4 +54,5 @@
         </article>
     </main>
     <footer class="d-flex w-100 justify-content-center">Footer</footer>
+    <script src='/config/script.js'></script>
 </body>

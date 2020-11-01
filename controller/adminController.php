@@ -5,14 +5,14 @@ class AdminController{
         $this->$page = $page;
     }
     function showEditPage($page){
-        @include_once './view/admin/admin.php';
-        @include_once './view/admin/admin-edit'.$page.'.php';
+        @include_once 'view/admin/admin.php';
+        @include_once 'view/admin/admin-edit'.$page.'.php';
     }
     function showLoginForm(){
-        @include_once './view/login/login.php';
+        @include_once 'view/login/login.php';
     }
     function showWelcomePage(){
-        @include_once './view/admin/admin.php';
-        @include_once './view/admin/admin-welcome.php';
+        @include_once 'view/admin/admin.php';
+        @include_once 'view/admin/admin-welcome.php';
     }
 }

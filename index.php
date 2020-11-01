@@ -1,5 +1,6 @@
 <?php
 session_start();
+@include_once 'config/db.php';
 
 // Status zalogowania // Zalogowany == 1 // Niezalogowany == 0 // W trakcie logowania == 2 // l == logged //
 $logged = $_SESSION['l'] ?? $_GET['l'] ?? $_POST['l'] ?? '0';
@@ -10,6 +11,7 @@ $page = $_GET['p'] ?? $_POST['p'] ?? "home";
 // Akcja na stronie // a == action //
 $action = $_GET['a'] ?? $_POST['a'] ?? "0";
 
+// Router
 if($page == "home"){
     @include_once './controller/pageController.php';
 }else if($page == "admin"){
@@ -31,6 +33,8 @@ if($page == "home"){
     $loginController = new LoginController;
     if($logged == 0 && $action == "submitted"){
         $loginController->validateForm();
+    }elseif($logged == 1 && $action == "success"){
+        $loginController->redirectToAdminPanel();
     }elseif($action == "logout"){
         $loginController->logout();
     }elseif($logged == 1){

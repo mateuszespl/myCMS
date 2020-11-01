@@ -10,10 +10,9 @@ CKEDITOR.replace('article');
 
 
 // LOGOUT TIMEOUT SCRIPT
-if(window.location.pathname === '/?p=login&a=logout'){
-setTimeout(function () {
-  window.location.href= '/';
-},3000);
-}
+if(document.title === 'Wylogowano'){
+  setTimeout(() => window.location.href= '/',3000);
+}else if(document.title === 'Zalogowano'){
+  setTimeout(() => window.location.href= '/?p=admin&l=1',3000);
 
-console.log(window.location.pathname)
+}

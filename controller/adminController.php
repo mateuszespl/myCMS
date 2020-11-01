@@ -15,4 +15,8 @@ class AdminController{
         @include_once 'view/admin/admin.php';
         @include_once 'view/admin/admin-welcome.php';
     }
+    function showEditPageForm(){
+        @include_once 'view/admin/admin.php';
+        @include_once 'view/admin/admin-editForm.php';
+    }
 }

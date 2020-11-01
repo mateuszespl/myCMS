@@ -11,6 +11,9 @@ $page = $_GET['p'] ?? $_POST['p'] ?? "home";
 // Akcja na stronie // a == action //
 $action = $_GET['a'] ?? $_POST['a'] ?? "0";
 
+// ID strony // id = identification number //
+$id = $_GET['id'] ?? $_POST['id'] ?? "0";
+
 // Router
 if($page == "home"){
     @include_once './controller/pageController.php';
@@ -18,14 +21,16 @@ if($page == "home"){
     @include_once './controller/adminController.php';
     $adminController = new AdminController;
     if($logged == 1){
-        if($action == "0"){
+        if($action == "0" && $id == "0"){
             $adminController -> showWelcomePage();
-        }elseif($action == "url"){
+        }elseif($action == "url" && $id == "0"){
             $adminController -> showEditPage("Url");
-        } elseif($action =="page"){
+        } elseif($action == "page" && $id == "0"){
             $adminController -> showEditPage("Page");
-        } elseif($action =="menu"){
+        } elseif($action == "menu" && $id == "0"){
             $adminController -> showEditPage("Menu");
+        } else if($id != "0"){
+            $adminController -> showEditPageForm();
         }
     } else $adminController->showLoginForm();
 }elseif($page == "login"){

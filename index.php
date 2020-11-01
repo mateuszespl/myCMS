@@ -6,16 +6,16 @@ session_start();
 $logged = $_SESSION['l'] ?? $_GET['l'] ?? $_POST['l'] ?? '0';
 
 // Adres strony // p == page //
-$page = $_GET['p'] ?? $_POST['p'] ?? "home";
+$page = $_GET['p'] ?? $_POST['p'] ?? "page";
 
 // Akcja na stronie // a == action //
-$action = $_GET['a'] ?? $_POST['a'] ?? "0";
+$action = $_GET['a'] ?? $_POST['a'] ?? "home";
 
 // ID strony // id = identification number //
 $id = $_GET['id'] ?? $_POST['id'] ?? "0";
 
 // Router
-if($page == "home"){
+if($page == "page"){
     @include_once './controller/pageController.php';
 }else if($page == "admin"){
     @include_once './controller/adminController.php';

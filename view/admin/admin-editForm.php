@@ -9,6 +9,7 @@ $content = $page[3];
 $title = $page[4];
 $date = $page[5];
 $contentTitle = $page[6];
+$isMain = $page[7];
  ?>
             <div class="card p-2 bg-secondary">
                 <form class="bg-light p-5">
@@ -40,9 +41,14 @@ $contentTitle = $page[6];
                         <label for="header">Nagłówek artykułu</label>
                         <input type="text" class="form-control" id="header" name="header" value="<?php echo $contentTitle; ?>">
                     </div>
-                    <div class="my-5">
+                    <div class="my-3">
                         <label for="article">Artykuł</label>
                         <textarea id="article" name="article"><?php echo $content; ?></textarea>
+                    </div>
+                    <div class="form-check mb-5">
+                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain" checked="<?php echo $isMain; ?>" value="<?php echo $isMain; ?>">
+                        <label for="header" class="form-check-label">Strona główna</label>
+                        <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>
                     </div>
                     <button type="submit" class="btn btn-success">Zaakceptuj zmiany</button>
                 </form>

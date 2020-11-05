@@ -21,7 +21,7 @@ if($page == "page"){
     @include_once './controller/adminController.php';
     $adminController = new AdminController;
     if($logged == 1){
-        if($action == "0" && $id == "0"){
+        if($action == "home" && $id == "0"){
             $adminController -> showWelcomePage();
         }elseif($action == "url" && $id == "0"){
             $adminController -> showEditPage("Url");
@@ -29,21 +29,23 @@ if($page == "page"){
             $adminController -> showEditPage("Page");
         } elseif($action == "menu" && $id == "0"){
             $adminController -> showEditPage("Menu");
-        } else if($id != "0"){
+        } elseif($id != "0" && $action == "edit"){
+            $adminController -> editForm($id);
+        } elseif($id != "0"){
             $adminController -> showEditPageForm();
-        }
-    } else $adminController->showLoginForm();
-}elseif($page == "login"){
-    @include_once './controller/loginController.php';
-    $loginController = new LoginController;
-    if($logged == 0 && $action == "submitted"){
-        $loginController->validateForm();
-    }elseif($logged == 1 && $action == "success"){
-        $loginController->redirectToAdminPanel();
-    }elseif($action == "logout"){
-        $loginController->logout();
-    }elseif($logged == 1){
-        $loginController->showAdminPanel();
-    } else $loginController->showLoginForm();
-}
+        } else $adminController->showLoginForm();
+    }
+    }elseif($page == "login"){
+        @include_once './controller/loginController.php';
+        $loginController = new LoginController;
+        if($logged == 0 && $action == "submitted"){
+            $loginController->validateForm();
+        }elseif($logged == 1 && $action == "success"){
+            $loginController->redirectToAdminPanel();
+        }elseif($action == "logout"){
+            $loginController->logout();
+        }elseif($logged == 1){
+            $loginController->showAdminPanel();
+        } else $loginController->showLoginForm();
+    }
  ?>

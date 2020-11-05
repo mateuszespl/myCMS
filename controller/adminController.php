@@ -1,4 +1,5 @@
 <?php 
+@include_once 'config/functions.php';
 class AdminController{
     public $page;
     function __construct(){
@@ -18,5 +19,8 @@ class AdminController{
     function showEditPageForm(){
         @include_once 'view/admin/admin.php';
         @include_once 'view/admin/admin-editForm.php';
+    }
+    function editForm($id){
+        var_dump(editPageByID($id, $_POST));
     }
 }

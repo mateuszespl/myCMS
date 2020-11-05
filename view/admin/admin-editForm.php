@@ -12,7 +12,7 @@ $contentTitle = $page[6];
 $isMain = $page[7];
  ?>
             <div class="card p-2 bg-secondary">
-                <form class="bg-light p-5">
+                <form class="bg-light p-5" method="POST">
                     <div class="form-group">
                         <label for="title">Meta tytuł</label>
                         <input type="text" class="form-control" id="title" name="title" value="<?php echo $title; ?>">
@@ -50,6 +50,8 @@ $isMain = $page[7];
                         <label for="header" class="form-check-label">Strona główna</label>
                         <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>
                     </div>
+                    <!-- INPUTY DO PRZEKIEROWANIA POST -->
+                    <input name="a" value="edit" type="hidden"/>
                     <button type="submit" class="btn btn-success">Zaakceptuj zmiany</button>
                 </form>
             </div>

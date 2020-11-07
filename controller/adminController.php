@@ -21,6 +21,9 @@ class AdminController{
         @include_once 'view/admin/admin-editForm.php';
     }
     function editForm($id){
-        var_dump(editPageByID($id, $_POST));
+        editPageByID($id, $_POST);
+    }
+    function addForm(){
+        addPage();
     }
 }

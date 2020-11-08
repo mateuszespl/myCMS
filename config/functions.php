@@ -40,7 +40,7 @@ function editPageByID($id, $data){
 }
 
 // Dodanie podstrony
-function addPage($id, $data){
+function addPage($data){
     global $db;
     $robots = $data['robots'];
     $header = $data['header'];
@@ -48,8 +48,7 @@ function addPage($id, $data){
     $article = $data['article'];
     $description = $data['description'];
     $isMain = $data['isMain'];
-    $update = "INSERT INTO pages VALUES (4, '$robots', '$description', '$article', '$title', 4, '$header', '$isMain')";
+    $update = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain')";
     $db->query($update);
     var_dump($db);
-    echo "Add page";
 }

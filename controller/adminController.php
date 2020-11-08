@@ -20,10 +20,14 @@ class AdminController{
         @include_once 'view/admin/admin.php';
         @include_once 'view/admin/admin-editForm.php';
     }
+    function showAddPageForm(){
+        @include_once 'view/admin/admin.php';
+        @include_once 'view/admin/admin-addForm.php';
+    }
     function editForm($id){
         editPageByID($id, $_POST);
     }
     function addForm(){
-        addPage();
+        addPage($_POST);
     }
 }

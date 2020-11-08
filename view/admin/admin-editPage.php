@@ -23,7 +23,9 @@ $pages = getPages();?>
                          </li>';
                     } ?>
                     </ul>
-               <button class="btn btn-warning mb-3 mx-5">Dodaj nową podstronę</button>
+               <a href="/?p=admin&a=add&id=0" class="btn btn-warning mb-3 mx-5">
+               Dodaj nową podstronę
+               </a>
                </div>
           </div>
     </main>

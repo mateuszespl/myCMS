@@ -6,13 +6,13 @@ session_start();
 $logged = $_SESSION['l'] ?? $_GET['l'] ?? $_POST['l'] ?? '0';
 
 // Adres strony // p == page //
-$page = $_GET['p'] ?? $_POST['p'] ?? "page";
+$page = $_POST['p'] ?? $_GET['p'] ?? "page";
 
 // Akcja na stronie // a == action //
-$action = $_GET['a'] ?? $_POST['a'] ?? "home";
+$action = $_POST['a'] ?? $_GET['a'] ?? "home";
 
 // ID strony // id = identification number //
-$id = $_GET['id'] ?? $_POST['id'] ?? "0";
+$id = $_POST['id'] ?? $_GET['id'] ?? "0";
 
 // Router
 if($page == "page"){
@@ -31,6 +31,10 @@ if($page == "page"){
             $adminController -> showEditPage("Menu");
         } elseif($id != "0" && $action == "edit"){
             $adminController -> editForm($id);
+        } elseif($id == "0" && $action == "add"){
+            $adminController -> showAddPageForm();
+        } elseif($id != "0" && $action == "add"){
+            $adminController -> addForm();
         } elseif($id != "0"){
             $adminController -> showEditPageForm();
         } else $adminController->showLoginForm();

@@ -35,6 +35,8 @@ if($page == "page"){
             $adminController -> showAddPageForm();
         } elseif($id != "0" && $action == "add"){
             $adminController -> addForm();
+        } elseif($id != "0" && $action == "delete"){
+            $adminController -> deleteForm($id);
         } elseif($id != "0"){
             $adminController -> showEditPageForm();
         } else $adminController->showLoginForm();

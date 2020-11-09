@@ -18,7 +18,9 @@ $pages = getPages();?>
                                    <button class="btn btn-success">
                                         <a class="text-reset" href="/?p=admin&id='.$id.'">Edytuj stronę</a>
                                    </button>
-                                   <button class="btn btn-danger">Usuń stronę</button>
+                                   <button class="btn btn-danger">
+                                        <a class="text-reset" href="/?p=admin&a=delete&id='.$id.'">Usuń stronę</a>
+                                   </button>
                               </div>
                          </li>';
                     } ?>

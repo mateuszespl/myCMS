@@ -30,4 +30,7 @@ class AdminController{
     function addForm(){
         addPage($_POST);
     }
+    function deleteForm($id){
+        deletePage($id);
+    }
 }

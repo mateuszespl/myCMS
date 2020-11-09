@@ -57,6 +57,6 @@ function addPage($data){
 function deletePage($id){
     global $db;
     $delete = "DELETE FROM pages WHERE page_id = '$id'";
-    $db->query($update);
+    $db->query($delete);
     var_dump($db);
 }

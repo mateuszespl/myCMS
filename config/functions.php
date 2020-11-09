@@ -52,3 +52,11 @@ function addPage($data){
     $db->query($update);
     var_dump($db);
 }
+
+// Usunięcie podstrony
+function deletePage($id){
+    global $db;
+    $delete = "DELETE FROM pages WHERE page_id = '$id'";
+    $db->query($update);
+    var_dump($db);
+}

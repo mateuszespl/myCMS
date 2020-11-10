@@ -45,8 +45,18 @@ $isMain = $page[7];
                         <label for="article">Artykuł</label>
                         <textarea id="article" name="article"><?php echo $content; ?></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="url">Przyjazny URL</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">http://splawski.4suns.pl/</div>
+                            </div>
+                            <input type="text" class="form-control" id="url" name="url" value="<?php echo $url; ?>">
+                        </div>
+                        <small class="form-text text-muted">Adres URL to na przykład: http://www.example.com/example.</small>
+                    </div>
                     <div class="form-check mb-5">
-                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain" checked="<?php echo $isMain; ?>" value="<?php echo $isMain; ?>">
+                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain" checked="<?php echo $isMain; ?>">
                         <label for="header" class="form-check-label">Strona główna</label>
                         <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>
                     </div>

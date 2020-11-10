@@ -33,8 +33,9 @@ function editPageByID($id, $data){
     $title = $data['title'];
     $article = $data['article'];
     $description = $data['description'];
-    $isMain = $data['isMain'];
-    $update = "UPDATE pages SET page_robots='$robots',page_description='$description',page_content='$article',page_title='$title',page_content_title='$header',page_isMain='$isMain' WHERE page_id ='$id'";
+    $isMain = $data['isMain'] == "on" ? 1 : 0;
+    $url = $data['url'];
+    $update = "UPDATE pages SET page_robots='$robots',page_description='$description',page_content='$article',page_title='$title',page_content_title='$header',page_isMain='$isMain',page_url='$url' WHERE page_id ='$id'";
     $db->query($update);
     var_dump($db);
 }
@@ -47,8 +48,9 @@ function addPage($data){
     $title = $data['title'];
     $article = $data['article'];
     $description = $data['description'];
-    $isMain = $data['isMain'];
-    $update = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain')";
+    $isMain = $data['isMain']  == "on" ? 1 : 0;
+    $url = $data['url'];
+    $update = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url')";
     $db->query($update);
     var_dump($db);
 }

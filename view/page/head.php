@@ -1,11 +1,9 @@
 <?php 
 session_start();
-@include_once 'config/functions.php';
-global $id;
-$page = getPageByID($id);
-$robots = $page[1];
-$description = $page[2];
-$title = $page[4];
+global $currentPage;
+$robots = $currentPage[1];
+$description = $currentPage[2];
+$title = $currentPage[4];
  ?>
 <head>
     <meta charset="UTF-8">

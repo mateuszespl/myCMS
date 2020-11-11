@@ -1,9 +1,9 @@
 <?php
-@include_once 'navigation.php';
-global $page;
-$content = $page[3];
-$date = $page[5];
-$contentTitle = $page[6];
+global $currentPage;
+$content = $currentPage[3];
+$date = $currentPage[5];
+$contentTitle = $currentPage[6];
+global $slug;
 ?>
     <main class="h-100 w-75 mx-auto my-5">
         <header>
@@ -13,5 +13,5 @@ $contentTitle = $page[6];
             <p><?php echo $content; ?></p>
         </article>
     </main>
-    <script src='/config/script.js'></script>
+    <script src='config/script.js'></script>
 </body>

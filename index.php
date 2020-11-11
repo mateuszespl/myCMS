@@ -1,24 +1,36 @@
 <?php
 session_start();
 @include_once 'config/db.php';
+@include_once 'config/functions.php';
+
 
 // Status zalogowania // Zalogowany == 1 // Niezalogowany == 0 // W trakcie logowania == 2 // l == logged //
 $logged = $_SESSION['l'] ?? $_GET['l'] ?? $_POST['l'] ?? '0';
 
-// Adres strony // p == page //
+// Adres strony //
 $page = $_POST['p'] ?? $_GET['p'] ?? "page";
 
-// Akcja na stronie // a == action //
+// Akcja na stronie //
 $action = $_POST['a'] ?? $_GET['a'] ?? "home";
 
-// ID strony // id = identification number //
+// ID strony // 
 $id = $_POST['id'] ?? $_GET['id'] ?? "0";
+
+// Url strony //
+$slug = $_POST['slug'] ?? $_GET['slug'] ?? "0";
+
+
+// Pages data //
+$currentPage = getPageByID($id);
+$pages = getPages();
 
 // Router
 if($page == "page"){
-    @include_once './controller/pageController.php';
+    @include_once 'controller/pageController.php';
+    $pageController = new PageController;
+    $pageController -> displayPage($slug);
 }else if($page == "admin"){
-    @include_once './controller/adminController.php';
+    @include_once 'controller/adminController.php';
     $adminController = new AdminController;
     if($logged == 1){
         if($action == "home" && $id == "0"){
@@ -42,7 +54,7 @@ if($page == "page"){
         } else $adminController->showLoginForm();
     }
     }elseif($page == "login"){
-        @include_once './controller/loginController.php';
+        @include_once 'controller/loginController.php';
         $loginController = new LoginController;
         if($logged == 0 && $action == "submitted"){
             $loginController->validateForm();

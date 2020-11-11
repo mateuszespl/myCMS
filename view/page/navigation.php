@@ -1,8 +1,6 @@
 <?php
-@include_once 'head.php';
-@include_once 'config/functions.php';
-$pages = getPages();
-global $id;
+include_once 'head.php';
+global $pages;
 ?>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,10 +18,11 @@ global $id;
         $content = $navigationPage[3];
         $title = $navigationPage[4];
         $date = $navigationPage[5];
+        $slug = $navigationPage[8];
         
 
         echo'<li class="nav-item">
-                <a class="nav-link" href="/?p=page&id='.$id.'">'.$title.'</a>
+                <a class="nav-link" href="/?p=page&id='.$id.'&slug='.$slug.'">'.$title.'</a>
             </li>';
         } ?>
       <li class="nav-item">

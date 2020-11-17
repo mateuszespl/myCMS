@@ -50,8 +50,8 @@ function addPage($data){
     $description = $data['description'];
     $isMain = $data['isMain']  == "on" ? 1 : 0;
     $url = $data['url'];
-    $update = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url')";
-    $db->query($update);
+    $insert = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url')";
+    $db->query($insert);
     var_dump($db);
 }
 
@@ -61,4 +61,27 @@ function deletePage($id){
     $delete = "DELETE FROM pages WHERE page_id = '$id'";
     $db->query($delete);
     var_dump($db);
+}
+
+// Dodanie pozycji do menu
+function addToMenu($data, $submenuData = 0){
+    global $db;
+    $hasSubmenu = $submenuData == 0 ? 0 : 1;
+    $insert = "INSERT INTO menu (menu_data, menu_has_submenu, menu_submenu_data) VALUES ('$data', '$hasSubmenu', $submenuData)";
+    $db->query($insert);
+}
+
+// Usuwanie pozycji z menu
+function deleteFromMenu($id){
+    global $db;
+    $delete = "DELETE FROM menu WHERE menu_position = '$id'";
+    $db->query($delete);
+}
+
+// Pobieranie danych menu
+function getMenu(){
+    global $db;
+    $get = "SELECT * FROM `menu`";
+    $menu = $db->query($get)->fetch_all();
+    return $menu;
 }

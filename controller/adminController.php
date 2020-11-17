@@ -24,6 +24,13 @@ class AdminController{
         @include_once 'view/admin/admin.php';
         @include_once 'view/admin/admin-addForm.php';
     }
+    function addToMenuForm($menu){
+        addToMenu($menu);
+    }
+    function deleteFromMenuForm(){
+        $id = $_GET["id"];
+        deleteFromMenu($id);
+    }
     function editForm($id){
         editPageByID($id, $_POST);
     }

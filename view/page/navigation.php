@@ -1,6 +1,6 @@
 <?php
 include_once 'head.php';
-global $pages;
+global $menuItems;
 ?>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,16 +11,11 @@ global $pages;
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
     <?php
-        foreach($pages as $navigationPage){
-        $id= $navigationPage[0];
-        $robots = $navigationPage[1];
-        $description = $navigationPage[2];
-        $content = $navigationPage[3];
-        $title = $navigationPage[4];
-        $date = $navigationPage[5];
-        $slug = $navigationPage[8];
-        
-
+        foreach($menuItems as $menuItem){
+        $data = unserialize($menuItem[1]);
+        $title = $data[4];
+        $slug = $data[8];
+        $id = $data[0];
         echo'<li class="nav-item">
                 <a class="nav-link" href="/?p=page&id='.$id.'&slug='.$slug.'">'.$title.'</a>
             </li>';

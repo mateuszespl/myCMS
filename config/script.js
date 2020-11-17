@@ -6,7 +6,7 @@
 //   });
 
 // CKEDITOR SETUP
-CKEDITOR.replace('article');
+// CKEDITOR.replace('article');
 
 // LOGOUT TIMEOUT SCRIPT
 if(document.title === 'Wylogowano'){

@@ -1,6 +1,10 @@
 <?php 
 @include_once 'config/functions.php';
-$pages = getPages();?>
+$pages = getPages();
+usort($pages, function ($item1, $item2) {
+     return $item2[0] <=> $item1[0];
+ }); 
+ ?>
 
                <div class="card bg-secondary p-2">
                     <ul class="list-group mb-3">

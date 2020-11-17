@@ -19,10 +19,16 @@ $id = $_POST['id'] ?? $_GET['id'] ?? "0";
 // Url strony //
 $slug = $_POST['slug'] ?? $_GET['slug'] ?? "0";
 
+// Pozycja menu //
+$menu = $_POST['menu'] ?? $_GET['menu'] ?? null;
+
 
 // Pages data //
 $currentPage = getPageByID($id);
 $pages = getPages();
+$menuItems = getMenu();
+
+var_dump($menu, $id, $action);
 
 // Router
 if($page == "page"){
@@ -39,6 +45,12 @@ if($page == "page"){
             $adminController -> showEditPage("Url");
         } elseif($action == "page" && $id == "0"){
             $adminController -> showEditPage("Page");
+        } elseif($action == "menu" && $id == "0" && $menu != null){
+            $adminController -> addToMenuForm($menu);
+            $adminController -> showEditPage("Menu");
+        } elseif($action == "menu" && $id != "0" && $menu != null){
+            $adminController -> deleteFromMenuForm($id);
+            $adminController -> showEditPage("Menu");
         } elseif($action == "menu" && $id == "0"){
             $adminController -> showEditPage("Menu");
         } elseif($id != "0" && $action == "edit"){

@@ -24,11 +24,10 @@ $menu = $_POST['menu'] ?? $_GET['menu'] ?? null;
 
 
 // Pages data //
-$currentPage = getPageByID($id);
+$currentPage = $slug != "0" ? getPageBySlug($slug) : getPageByID($id);
 $pages = getPages();
 $menuItems = getMenu();
 
-var_dump($menu, $id, $action);
 
 // Router
 if($page == "page"){

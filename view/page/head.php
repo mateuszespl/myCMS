@@ -11,5 +11,8 @@ $title = $currentPage[4];
     <meta name="robots" content="<?php echo $robots; ?>"/>
     <meta name="description" content="<?php echo $description; ?>"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="config/style.css">
     <title><?php echo $title; ?></title>
 </head>

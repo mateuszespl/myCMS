@@ -10,7 +10,7 @@ global $menuItems;
                     foreach($menuItems as $menuItem){
                     $id= $menuItem[0];
                     $data = unserialize($menuItem[1]);
-                    $title = $data[4];
+                    $title = $data[8];
                     $submenu = $menuItem[2];
                     $submenuData = $menuItem[3];
                     echo '<li class="list-group-item">'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';

@@ -10,6 +10,7 @@ $title = $page[4];
 $date = $page[5];
 $contentTitle = $page[6];
 $isMain = $page[7];
+$url = $page[8];
  ?>
             <div class="card p-2 bg-secondary">
                 <form class="bg-light p-5" method="POST">

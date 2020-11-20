@@ -33,6 +33,17 @@ function getPageBySlug($slug){
     return $page;
 }
 
+// Edycja przyjaznego url
+function makeSlug($url){
+    $url = preg_replace('~[^\pL\d]+~u', '-', $url);
+    $url = iconv('utf-8', 'us-ascii//TRANSLIT', $url);
+    $url = preg_replace('~[^-\w]+~', '', $url);
+    $url = trim($url, '-');
+    $url = preg_replace('~-+~', '-', $url);
+    $url = strtolower($url);
+    return $url;
+}
+
 // Edycja podstrony
 function editPageByID($id, $data){
     global $db;
@@ -42,7 +53,7 @@ function editPageByID($id, $data){
     $article = $data['article'];
     $description = $data['description'];
     $isMain = $data['isMain'] == "on" ? 1 : 0;
-    $url = $data['url'];
+    $url = $isMain == 1 ? "" : makeSlug($data['url']);
     $update = "UPDATE pages SET page_robots='$robots',page_description='$description',page_content='$article',page_title='$title',page_content_title='$header',page_isMain='$isMain',page_url='$url' WHERE page_id ='$id'";
     $db->query($update);
 }
@@ -56,10 +67,9 @@ function addPage($data){
     $article = $data['article'];
     $description = $data['description'];
     $isMain = $data['isMain']  == "on" ? 1 : 0;
-    $url = $data['url'];
+    $url = $isMain == 1 ? "" : makeSlug($data['url']);
     $insert = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url')";
     $db->query($insert);
-    var_dump($db);
 }
 
 // Usunięcie podstrony
@@ -67,7 +77,6 @@ function deletePage($id){
     global $db;
     $delete = "DELETE FROM pages WHERE page_id = '$id'";
     $db->query($delete);
-    var_dump($db);
 }
 
 // Dodanie pozycji do menu

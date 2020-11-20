@@ -12,7 +12,7 @@ $contentTitle = $page[6];
 $isMain = $page[7];
 $url = $page[8];
  ?>
-            <div class="card p-2 bg-secondary">
+            <div class="card h-100 w-100 p-2 bg-secondary">
                 <form class="bg-light p-5" method="POST">
                     <div class="form-group">
                         <label for="title">Meta tytuł</label>
@@ -52,12 +52,12 @@ $url = $page[8];
                             <div class="input-group-prepend">
                                 <div class="input-group-text">http://splawski.4suns.pl/</div>
                             </div>
-                            <input type="text" class="form-control" id="url" name="url" value="<?php echo $url; ?>">
+                            <input type="text" class="form-control" required id="url" name="url" value="<?php echo $url; ?>">
                         </div>
                         <small class="form-text text-muted">Adres URL to na przykład: http://www.example.com/example.</small>
                     </div>
                     <div class="form-check mb-5">
-                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain" checked="<?php echo $isMain; ?>">
+                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain" <?php echo $isMain ? "checked" : ""; ?>>
                         <label for="header" class="form-check-label">Strona główna</label>
                         <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>
                     </div>

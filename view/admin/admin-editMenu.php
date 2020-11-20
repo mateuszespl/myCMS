@@ -4,19 +4,19 @@ global $pages;
 global $menuItems;
 ?>
 
-            <div class="card bg-secondary p-2">
+            <div class="card w-100 bg-secondary p-2 flex-column h-100">
                 <ul id="sortable" class="list-group mb-3">
                 <?php
                     foreach($menuItems as $menuItem){
                     $id= $menuItem[0];
                     $data = unserialize($menuItem[1]);
-                    $title = $data[8];
+                    $title = $data[4];
                     $submenu = $menuItem[2];
                     $submenuData = $menuItem[3];
-                    echo '<li class="list-group-item">'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
+                    echo '<li class="list-group-item d-flex align-items-center">'.'<span class="badge badge-dark mr-2">'.$id.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
                     } ?>
                 </ul>
-                <button class="btn btn-warning mb-3 mx-5" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>
+                <button class="btn btn-warning w-50 align-self-center  mb-3 mx-5" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>
             </div>
             <form method="POST">
                 <div class="modal fade" id="pageModal" aria-hidden="true">
@@ -48,7 +48,7 @@ global $menuItems;
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
-                            <button type="submit" class="btn btn-success">Dodaj pozycję</button>
+                            <button type="submit" class="btn btn-success">Dodaj</button>
                         </div>
                         </div>
                     </div>

@@ -24,7 +24,9 @@ $menu = $_POST['menu'] ?? $_GET['menu'] ?? null;
 
 
 // Pages data //
-$currentPage = $slug != "0" ? getPageBySlug($slug) : getPageByID($id);
+if($_SERVER["REQUEST_URI"] == "/"){
+   $currentPage = getPageBySlug("");
+} else $currentPage = $slug != "0" ? getPageBySlug($slug) : getPageByID($id);
 $pages = getPages();
 $menuItems = getMenu();
 

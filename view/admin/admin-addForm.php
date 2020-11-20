@@ -2,11 +2,11 @@
 $pages = getPages();
  ?>  
  
-            <div class="card p-2 bg-secondary">
+            <div class="card w-100 h-100 p-2 bg-secondary">
                 <form class="bg-light p-5" method="POST">
                     <div class="form-group">
                         <label for="title">Meta tytuł</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" required id="title" name="title">
                         <small class="form-text text-muted">Ogranicz ilość znaków do 100 (łącznie z nazwą firmy).</small>
                     </div>
                     <div class="form-group">
@@ -40,11 +40,12 @@ $pages = getPages();
                             <div class="input-group-prepend">
                                 <div class="input-group-text">http://splawski.4suns.pl/</div>
                             </div>
-                            <input type="text" class="form-control" id="url" name="url" value="<?php echo $url; ?>">
+                            <input type="text" class="form-control" required id="url" name="url" value="<?php echo $url; ?>">
                         </div>
                         <small class="form-text text-muted">Adres URL to na przykład: http://www.example.com/example.</small>
                     </div>
                     <div class="form-check mb-5">
+                    <input type="checkbox" class="form-check-input" id="isMain" name="isMain" <?php echo $isMain ? "checked" : ""; ?>>
                         <input type="checkbox" class="form-check-input" id="isMain" name="isMain">
                         <label for="header" class="form-check-label">Strona główna</label>
                         <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>

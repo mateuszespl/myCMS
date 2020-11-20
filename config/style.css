@@ -46,3 +46,11 @@ main{
     text-transform:uppercase;
     font-weight:bold;
 }
+
+.sortable:hover{
+    cursor:grab;
+}
+
+.sortable:active{
+    cursor:grabbing;
+}

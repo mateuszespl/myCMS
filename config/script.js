@@ -1,10 +1,11 @@
 // SORTING LIST
 
-// $(document).ready(function(){
-//     $("#sortable").sortable();
-//     $("#sortable").disableSelection();
-//   });
-
+$(document).ready(function(){
+    $("#sortable").sortable({
+      update:(e) => console.log(e)
+    });
+  });
+  
 // CKEDITOR SETUP
 CKEDITOR.replace('article') && CKEDITOR.replace('article');
 

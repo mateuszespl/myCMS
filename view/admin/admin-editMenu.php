@@ -13,7 +13,7 @@ global $menuItems;
                     $title = $data[4];
                     $submenu = $menuItem[2];
                     $submenuData = $menuItem[3];
-                    echo '<li class="list-group-item d-flex align-items-center">'.'<span class="badge badge-dark mr-2">'.$id.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
+                    echo '<li class="list-group-item sortable d-flex align-items-center">'.'<span class="badge badge-dark mr-2">'.$id.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
                     } ?>
                 </ul>
                 <button class="btn btn-warning w-50 align-self-center  mb-3 mx-5" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>

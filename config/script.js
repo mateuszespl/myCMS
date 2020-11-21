@@ -2,9 +2,32 @@
 
 $(document).ready(function(){
     $("#sortable").sortable({
-      update:(e) => console.log(e)
-    });
-  });
+      update: function (event, ui) {
+        $(this).children().each(function() {
+        saveNewPositions();
+    }
+});
+});
+
+function saveNewPositions() {
+ var positions = [];
+ $('.updated').each(function () {
+    positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+    $(this).removeClass('updated');
+ });
+
+ $.ajax({
+    url: 'index.php',
+    method: 'POST',
+    dataType: 'text',
+    data: {
+        update: 1,
+        positions: positions
+    }, success: function (response) {
+         console.log(response);
+    }
+ });
+}
   
 // CKEDITOR SETUP
 CKEDITOR.replace('article') && CKEDITOR.replace('article');

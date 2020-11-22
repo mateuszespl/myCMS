@@ -46,7 +46,6 @@ $pages = getPages();
                     </div>
                     <div class="form-check mb-5">
                     <input type="checkbox" class="form-check-input" id="isMain" name="isMain" <?php echo $isMain ? "checked" : ""; ?>>
-                        <input type="checkbox" class="form-check-input" id="isMain" name="isMain">
                         <label for="header" class="form-check-label">Strona główna</label>
                         <small class="form-text text-muted">Zaznacz, jeśli chcesz aby to była strona główna.</small>
                     </div>

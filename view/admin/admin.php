@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?php echo $uri == "/?p=admin&l=1&a=page" ? "active font-weight-bold" : null ?> mx-5">
-                <a class="nav-link" href="/?p=admin&l=1&a=page">Edytuj podstrony</a>
+                <a class="nav-link" href="/?p=admin&l=1&a=page">Edytuj strony</a>
             </li>
             <li class="nav-item  <?php echo $uri == "/?p=admin&l=1&a=menu" ? "active font-weight-bold" : null ?> mx-5">
             <a class="nav-link" href="/?p=admin&l=1&a=menu">Edytuj menu</a>

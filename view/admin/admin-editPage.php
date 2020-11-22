@@ -31,7 +31,7 @@ usort($pages, function ($item1, $item2) {
                     } ?>
                     </ul>
                <a href="/?p=admin&a=add&id=0" class="btn w-50 btn-warning mb-3 align-self-center mx-5">
-               Dodaj nową podstronę
+               Dodaj nową stronę
                </a>
                </div>
           </div>

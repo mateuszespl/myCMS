@@ -14,9 +14,6 @@ function saveMenu() {
      method: 'POST',
      dataType: 'text',
      data: {positions},
-      success: function (response) {
-          console.log(response);
-     },
   })
 }
 
@@ -28,39 +25,51 @@ function updateMenu(){
     }
   });
   saveMenu();
+  $('.btn-success').removeClass("disabled");
 }
 
 $(document).ready(function(){
   // po każdej zmianie działa funkcja updateMenu()
     $("#sortable").sortable({update: updateMenu});
   });
+
+
 }
 
   
-// CKEDITOR SETUP
-CKEDITOR.replace('article') && CKEDITOR.replace('article');
 
 // LOGOUT TIMEOUT SCRIPT
 if(document.title === 'Wylogowano'){
-  setTimeout(() => window.location.href= '/',3000);
+  setTimeout(() => window.location.href= '/',2000);
 }else if(document.title === 'Zalogowano'){
-  setTimeout(() => window.location.href= '/?p=admin&l=1',3000);
+  setTimeout(() => window.location.href= '/?p=admin&l=1',2000);
+}else if(document.title === 'Zmiany zostały wprowadzone' || document.title === 'Strona została dodana' || document.title === 'Strona została usunięta'){
+  setTimeout(() => window.location.href= '/?p=admin&l=1&a=page', 2000);
+}else if(document.title === "Dodano pozycję do menu" || document.title === "Usunięto pozycję z menu" || document.title === "Kolejność zmieniona pomyślnie"){
+  setTimeout(() => window.location.href= '/?p=admin&l=1&a=menu', 2000);
 }
 
-// MAIN PAGE CHECKBOX CLEAR
-const checkbox = $("#isMain")[0];
-const urlInput = $("#url")[0];
 
-function clearInput(){
-  if(checkbox.checked){
-    urlInput.required = false;
-    urlInput.disabled = true;
-    urlInput.placeholder = `nie można ustawić dla strony głównej`;
-  } else{
-    urlInput.required = true;
-    urlInput.disabled = false;
-    urlInput.placeholder = ``;
+
+if(document.title === 'Panel admina - Edycja strony'){
+  // MAIN PAGE CHECKBOX CLEAR
+  const checkbox = $("#isMain")[0];
+  const urlInput = $("#url")[0];
+  
+  function clearInput(){
+    if(checkbox.checked){
+      urlInput.required = false;
+      urlInput.disabled = true;
+      urlInput.placeholder = `nie można ustawić dla strony głównej`;
+    } else{
+      urlInput.required = true;
+      urlInput.disabled = false;
+      urlInput.placeholder = ``;
+    }
   }
+  checkbox.addEventListener("change", clearInput)
+  clearInput();
+
+  // CKEDITOR SETUP
+  CKEDITOR.replace('article') && CKEDITOR.replace('article');
 }
-checkbox.addEventListener("change", clearInput)
-clearInput();

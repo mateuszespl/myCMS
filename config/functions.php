@@ -83,7 +83,6 @@ function addPage($data){
 
     $insert = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url, page_url_default) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url', '$urlDefault')";
     $db->query($insert);
-    var_dump($db);
 }
 
 // Usunięcie podstrony
@@ -108,7 +107,7 @@ function addToMenu($data, $submenuData = 0){
 // Usuwanie pozycji z menu
 function deleteFromMenu($id){
     global $db;
-    $delete = "DELETE FROM menu WHERE menu_position = '$id'";
+    $delete = "DELETE FROM menu WHERE menu_id = '$id'";
     $db->query($delete);
 }
 
@@ -130,6 +129,7 @@ function updateMenuData($id, $menuData){
 
 function updateMenuOrder($positions){
     global $db;
+    var_dump($positions);
     foreach($positions as $position) {
         $id = $position[0];
         $updatedPosition = $position[1];

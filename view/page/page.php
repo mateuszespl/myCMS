@@ -8,7 +8,6 @@ $contentTitle = $currentPage[6];
         <header>
             <h1><?php echo $contentTitle; ?></h1>
         </header>
-        <hr>
         <article>
             <p><?php echo $content; ?></p>
         </article>

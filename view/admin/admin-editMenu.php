@@ -17,7 +17,10 @@ global $menuItems;
                     echo '<li class="list-group-item sortable d-flex align-items-center" data-position='.$position.' data-id='.$id.'><span class="badge badge-dark mr-2">'.$position.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
                     } ?>
                 </ul>
-                <button class="btn btn-warning w-50 align-self-center  mb-3 mx-5" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>
+                <div class="btn-group w-75 align-self-center  mb-3 mx-5" role="group" aria-label="Basic example">
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>
+                    <a href="/?p=admin&l=1&a=menuaccept" class="btn btn-success disabled" >Zaakceptuj kolejność</a>
+                </div>
             </div>
             <form method="POST">
                 <div class="modal fade" id="pageModal" aria-hidden="true">

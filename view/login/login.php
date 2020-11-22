@@ -3,7 +3,7 @@ global $action;
 $action == "failure" ? $failure = true : $failure = false;
  ?>
 <body>
-    <main>
+    <div class="bg-secondary">
         <div class="w-100 h-100 d-flex justify-content-center align-items-center login">
             <div class="card">
                 <div class="card-header">Zaloguj się do panelu administracyjnego</div>
@@ -22,10 +22,11 @@ $action == "failure" ? $failure = true : $failure = false;
                     <input name="p" value="login" type="hidden"/>
                     <input name="a" value="submitted" type="hidden"/>
                     <button type="submit" class="btn btn-dark w-100 mt-3">Zaloguj się</button>
+                    <a class="btn btn-light w-100" href="/">Strona główna</a>
                 </form>
                 </div>
             </div>
         </div>
-    </main>
+    <div>
     <script src='/config/script.js'></script>
 </body>

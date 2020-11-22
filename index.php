@@ -49,22 +49,27 @@ if($page == "page"){
             $adminController -> showEditPage("Url");
         } elseif($action == "page" && $id == "0"){
             $adminController -> showEditPage("Page");
+        } else if($action =="menuaccept"){
+            $adminController -> redirect();
         } elseif($action == "menu" && $id == "0" && $menu != null){
             $adminController -> addToMenuForm($menu);
-            $adminController -> showEditPage("Menu");
+            $adminController -> redirect();
         } elseif($action == "menu" && $id != "0" && $menu != null){
             $adminController -> deleteFromMenuForm($id);
-            $adminController -> showEditPage("Menu");
+            $adminController -> redirect();
         } elseif($action == "menu" && $id == "0"){
             $adminController -> showEditPage("Menu");
         } elseif($id != "0" && $action == "edit"){
             $adminController -> editForm($id);
+            $adminController -> redirect();
         } elseif($id == "0" && $action == "add"){
             $adminController -> showAddPageForm();
         } elseif($id != "0" && $action == "add"){
             $adminController -> addForm();
+            $adminController -> redirect();
         } elseif($id != "0" && $action == "delete"){
             $adminController -> deleteForm($id);
+            $adminController -> redirect();
         } elseif($id != "0"){
             $adminController -> showEditPageForm();
         } else $adminController->showLoginForm();
@@ -75,11 +80,13 @@ if($page == "page"){
         if($logged == 0 && $action == "submitted"){
             $loginController->validateForm();
         }elseif($logged == 1 && $action == "success"){
-            $loginController->redirectToAdminPanel();
+            $loginController->redirect();
         }elseif($action == "logout"){
             $loginController->logout();
         }elseif($logged == 1){
-            $loginController->showAdminPanel();
+            @include_once 'controller/adminController.php';
+            $adminController = new AdminController;
+            $adminController -> showWelcomePage();
         } else $loginController->showLoginForm();
     }
  ?>

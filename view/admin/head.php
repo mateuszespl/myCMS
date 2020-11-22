@@ -1,22 +1,35 @@
-<?php session_start();?>
+<?php session_start();
+global $action;
+global $id;
+global $menu;
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="/config/style.css">
     <title><?php
-    switch($_SERVER["REQUEST_URI"]){
-        case "/admin":
-            $adminTitle = "Panel admina";
-        break;
-        case "/?p=admin&l=1&a=page":
-         $adminTitle = "Panel admina - Edytuj podstrony";
-        break;
-        case "/?p=admin&l=1&a=menu":
+    if($_SERVER["REQUEST_URI"] == "/admin"){
+        $adminTitle = "Panel admina";
+    } else if($_SERVER["REQUEST_URI"] == "/?p=admin&l=1&a=page"){
+        $adminTitle = "Panel admina - Edytuj strony";
+    } else if($action == "edit"){
+        $adminTitle = "Zmiany zostały wprowadzone";
+    } else if($action == "add" && $id != 0){
+        $adminTitle = "Strona została dodana";
+    } else if($_SERVER["REQUEST_URI"] == "/?p=admin&id=".$id.""){
+        $adminTitle = "Panel admina - Edycja strony";
+    } else if($action == "delete"){
+        $adminTitle = "Strona została usunięta";
+    } else if($menu != null && $action == "menu" && $id == 0){
+        $adminTitle = "Dodano pozycję do menu";
+    } else if($menu != null && $action == "menu" && $id != 0){
+        $adminTitle = "Usunięto pozycję z menu";
+    } else if($_SERVER["REQUEST_URI"] == "/?p=admin&l=1&a=menu"){
          $adminTitle= "Panel admina - Edytuj menu";
-        break;
-        default: $adminTitle = "Panel admina";
-     }
+    } else if($action == "menuaccept"){
+        $adminTitle = "Kolejność zmieniona pomyślnie";
+    } else $adminTitle = "Panel admina";
      echo $adminTitle; ?></title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

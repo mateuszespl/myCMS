@@ -7,8 +7,8 @@ class LoginController{
     function showAdminPanel(){
         @include_once 'view/admin/admin.php';
     }
-    function redirectToAdminPanel(){
-        @include_once 'view/login/login-redirectInfo.php';
+    function redirect(){
+        @include_once 'view/login/redirect.php';
     }
     function validateForm(){
         $user = getUser(); 
@@ -25,6 +25,6 @@ class LoginController{
     }
     function logout(){
         $_SESSION['l'] = 0;
-        @include_once 'view/login/login-logoutInfo.php';
+        @include_once 'view/login/redirect.php';
     }
 }

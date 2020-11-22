@@ -18,11 +18,11 @@ global $menuItems;
         $id = $data[0];
         if($_SERVER["REQUEST_URI"] == "/".$slug){
           echo'<li class="nav-item mx-5">
-          <a class="nav-link active" href="/?slug='.$slug.'">'.$title.'</a>
+          <a class="nav-link active" href="/'.$slug.'">'.$title.'</a>
           </li>';
         } else{
         echo'<li class="nav-item mx-5">
-                <a class="nav-link" href="/?slug='.$slug.'">'.$title.'</a>
+                <a class="nav-link" href="/'.$slug.'">'.$title.'</a>
             </li>';
         }
         } ?>

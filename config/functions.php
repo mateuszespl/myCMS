@@ -54,6 +54,12 @@ function editPageByID($id, $data){
     $description = $data['description'];
     $isMain = $data['isMain'] == "on" ? 1 : 0;
     $url = $isMain == 1 ? "" : makeSlug($data['url']);
+
+    if($isMain == 1){
+        $updateMenu = "UPDATE pages SET page_isMain = 0, page_url=page_url_default WHERE page_isMain = 1";
+        $db->query($updateMenu);
+    }
+
     $update = "UPDATE pages SET page_robots='$robots',page_description='$description',page_content='$article',page_title='$title',page_content_title='$header',page_isMain='$isMain',page_url='$url' WHERE page_id ='$id'";
     $db->query($update);
 }
@@ -68,8 +74,16 @@ function addPage($data){
     $description = $data['description'];
     $isMain = $data['isMain']  == "on" ? 1 : 0;
     $url = $isMain == 1 ? "" : makeSlug($data['url']);
-    $insert = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url')";
+    $urlDefault = makeSlug($header);
+
+    if($isMain == 1){
+        $updateMenu = "UPDATE pages SET page_isMain = 0, page_url=page_url_default WHERE page_isMain = 1";
+        $db->query($updateMenu);
+    }
+
+    $insert = "INSERT INTO pages (page_robots, page_description, page_content, page_title, page_content_title, page_isMain, page_url, page_url_default) VALUES ('$robots', '$description', '$article', '$title', '$header', '$isMain', '$url', '$urlDefault')";
     $db->query($insert);
+    var_dump($db);
 }
 
 // Usunięcie podstrony
@@ -77,6 +91,9 @@ function deletePage($id){
     global $db;
     $delete = "DELETE FROM pages WHERE page_id = '$id'";
     $db->query($delete);
+
+    $deleteFromMenu = "DELETE FROM menu WHERE menu_data_id = '$id'";
+    $db->query($deleteFromMenu);
 }
 
 // Dodanie pozycji do menu
@@ -98,7 +115,7 @@ function deleteFromMenu($id){
 // Pobieranie danych menu
 function getMenu(){
     global $db;
-    $get = "SELECT * FROM `menu`";
+    $get = "SELECT * FROM `menu` ORDER BY `menu_position`";
     $menu = $db->query($get)->fetch_all();
     return $menu;
 }
@@ -109,4 +126,13 @@ function updateMenuData($id, $menuData){
     $data = serialize($menuData);
     $menuUpdate = "UPDATE menu SET menu_data='$data' WHERE menu_data_id='$id'";
     $db->query($menuUpdate);
+}
+
+function updateMenuOrder($positions){
+    global $db;
+    foreach($positions as $position) {
+        $id = $position[0];
+        $updatedPosition = $position[1];
+        $db->query("UPDATE menu SET menu_position = '$updatedPosition' WHERE menu_id = '$id'");
+    }
 }

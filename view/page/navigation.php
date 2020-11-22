@@ -12,7 +12,7 @@ global $menuItems;
     <ul class="navbar-nav ml-auto">
     <?php
         foreach($menuItems as $menuItem){
-        $data = unserialize($menuItem[1]);
+        $data = unserialize($menuItem[2]);
         $title = $data[4];
         $slug = $data[8];
         $id = $data[0];

@@ -28,7 +28,7 @@ $pages = getPages();
                     </div>
                     <div class="form-group">
                         <label for="header">Nagłówek artykułu</label>
-                        <input type="text" class="form-control" id="header" name="header">
+                        <input type="text" class="form-control" id="header" required name="header">
                     </div>
                     <div class="my-3">
                         <label for="article">Artykuł</label>

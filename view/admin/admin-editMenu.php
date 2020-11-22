@@ -9,11 +9,12 @@ global $menuItems;
                 <?php
                     foreach($menuItems as $menuItem){
                     $id= $menuItem[0];
-                    $data = unserialize($menuItem[1]);
+                    $position = $menuItem[1];
+                    $data = unserialize($menuItem[2]);
                     $title = $data[4];
-                    $submenu = $menuItem[2];
-                    $submenuData = $menuItem[3];
-                    echo '<li class="list-group-item sortable d-flex align-items-center" data-position="" data-id='.$id.'><span class="badge badge-dark mr-2">'.$id.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
+                    $submenu = $menuItem[3];
+                    $submenuData = $menuItem[4];
+                    echo '<li class="list-group-item sortable d-flex align-items-center" data-position='.$position.' data-id='.$id.'><span class="badge badge-dark mr-2">'.$position.'</span>'.$title.'<a class="btn btn-danger ml-auto" href="/?p=admin&l=1&a=menu&id='.$id.'&menu='.$title.'">Usuń</a></li>';
                     } ?>
                 </ul>
                 <button class="btn btn-warning w-50 align-self-center  mb-3 mx-5" data-toggle="modal" data-target="#pageModal">Dodaj pozycję do menu</button>

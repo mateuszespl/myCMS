@@ -33,8 +33,8 @@ class AdminController{
     }
     function editForm($id){
         editPageByID($id, $_POST);
-        $data = getPages();
-        updateMenuData($id, $data[sizeof($data) - 1]);
+        $data = getPageByID($id);
+        updateMenuData($id, $data);
     }
     function addForm(){
         addPage($_POST);

@@ -30,6 +30,9 @@ if($_SERVER["REQUEST_URI"] == "/"){
 $pages = getPages();
 $menuItems = getMenu();
 
+if(isset($_POST["positions"])){
+    updateMenuOrder($_POST["positions"]);
+}
 
 // Router
 if($page == "page"){
